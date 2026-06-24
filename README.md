@@ -1,3 +1,4 @@
+![SecurePass Analyzer banner](showcase/02-banner.png)
 # 🔐 SecurePass Analyzer
 
 A modern password security assessment platform designed to help users create stronger passwords through real-time security analysis, entropy calculation, password generation, and visual security feedback.
