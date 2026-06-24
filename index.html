@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecurePass Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <i class="fa-solid fa-shield-virus"></i>
+            <h1>SecurePass Analyzer</h1>
+        </header>
+
+        <div class="generator-section">
+            <button id="generate-btn" class="glow-btn">
+                <i class="fa-solid fa-bolt"></i> Generate Secure Password
+            </button>
+            <div class="generator-controls">
+                <div class="control-group">
+                    <label>Length: <span id="length-val">14</span></label>
+                    <input type="range" id="length-slider" min="8" max="32" value="14">
+                </div>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" id="gen-upper" checked> Uppercase</label>
+                    <label><input type="checkbox" id="gen-numbers" checked> Numbers</label>
+                    <label><input type="checkbox" id="gen-symbols" checked> Symbols</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="analyzer-section">
+            <div class="input-wrapper">
+                <input type="password" id="password-input" placeholder="Enter or generate a password..." autocomplete="off">
+                <button id="toggle-visibility"><i class="fa-solid fa-eye"></i></button>
+            </div>
+            
+            <div class="actions-wrapper">
+                <button id="export-btn" class="secondary-btn" style="display: none;">
+                    <i class="fa-solid fa-file-export"></i> Export Report
+                </button>
+            </div>
+
+            <div id="breach-alert" class="alert-banner danger-banner" style="display: none;">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <span>⚠ This password has appeared in known data breaches.</span>
+            </div>
+
+            <div id="history-alert" class="alert-banner warning-banner" style="display: none;">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>⚠ This password is already in your local history.</span>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="score-card">
+                    <h3>Security Score</h3>
+                    <div class="score-display">
+                        <span id="score-value">0</span>
+                        <span class="score-max">/ 100</span>
+                    </div>
+                </div>
+
+                <div class="metrics-card">
+                    <div class="metric">
+                        <i class="fa-solid fa-wave-square"></i>
+                        <div>
+                            <span>Entropy</span>
+                            <strong id="entropy-value">0 bits</strong>
+                        </div>
+                    </div>
+                    <div class="metric">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        <div>
+                            <span>Crack Time</span>
+                            <strong id="time-value">0s</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checks-section">
+                <h3>Security Checks</h3>
+                <ul id="checks-list">
+                    <li id="check-upper"><i class="fa-solid fa-xmark"></i> Contains Uppercase</li>
+                    <li id="check-lower"><i class="fa-solid fa-xmark"></i> Contains Lowercase</li>
+                    <li id="check-numbers"><i class="fa-solid fa-xmark"></i> Contains Numbers</li>
+                    <li id="check-symbols"><i class="fa-solid fa-xmark"></i> Contains Special Characters</li>
+                    <li id="check-length"><i class="fa-solid fa-xmark"></i> Length > 12</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
